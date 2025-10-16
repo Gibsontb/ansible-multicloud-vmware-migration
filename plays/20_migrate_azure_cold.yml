@@ -1,0 +1,15 @@
+
+---
+- name: Cold image migration to Azure (OVF → VHD → Managed Image → VM)
+  hosts: azure
+  gather_facts: false
+  pre_tasks:
+    - set_fact:
+        selected_vms: "{{ hostvars['vcenter'].vm_list | default([]) }}"
+  roles:
+    - role: image_export_vmware
+    - role: upload_to_cloud
+      vars:
+        provider: azure
+    - role: azure_image_import
+  tags: [azure,cold]

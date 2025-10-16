@@ -1,0 +1,8 @@
+
+---
+- name: Create GCP landing zone (VPC, subnets, firewall)
+  hosts: gcp
+  gather_facts: false
+  roles:
+    - role: gcp_landing
+  tags: [gcp,landing]

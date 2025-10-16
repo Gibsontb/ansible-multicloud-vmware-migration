@@ -1,0 +1,22 @@
+
+---
+- name: Ensure export directory exists (controller)
+  ansible.builtin.file:
+    path: "{{ vmware_export_dir }}"
+    state: directory
+    mode: '0755'
+
+- name: Export VMs to OVF/OVA (per VM)
+  loop: "{{ hostvars['vcenter'].vm_list | default([]) }}"
+  loop_control:
+    loop_var: vm
+  community.vmware.vmware_export_ovf:
+    hostname: "{{ hostvars['vcenter'].vcenter_hostname }}"
+    username: "{{ hostvars['vcenter'].vcenter_username }}"
+    password: "{{ hostvars['vcenter'].vcenter_password }}"
+    validate_certs: false
+    vm_name: "{{ vm.guest_name }}"
+    export_with_images: true
+    ova: true
+    directory: "{{ vmware_export_dir }}/{{ vm.guest_name }}"
+  register: exported

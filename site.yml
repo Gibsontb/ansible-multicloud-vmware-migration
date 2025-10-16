@@ -1,0 +1,13 @@
+
+---
+- import_playbook: plays/00_discover_vmware.yml
+- import_playbook: plays/10_landing_aws.yml
+- import_playbook: plays/10_landing_azure.yml
+- import_playbook: plays/10_landing_gcp.yml
+- import_playbook: plays/20_migrate_aws_cold.yml
+- import_playbook: plays/20_migrate_azure_cold.yml
+- import_playbook: plays/20_migrate_gcp_cold.yml
+- import_playbook: plays/21_migrate_aws_live.yml
+- import_playbook: plays/21_migrate_azure_live.yml
+- import_playbook: plays/21_migrate_gcp_live.yml
+- import_playbook: plays/30_cutover.yml

@@ -1,0 +1,11 @@
+
+---
+all:
+  hosts:
+    azure:
+      ansible_connection: local
+      azure_subscription_id: "{{ vault_azure_subscription_id }}"
+      azure_client_id: "{{ vault_azure_client_id }}"
+      azure_client_secret: "{{ vault_azure_client_secret }}"
+      azure_tenant: "{{ vault_azure_tenant }}"
+      azure_location: eastus

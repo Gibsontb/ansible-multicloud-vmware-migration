@@ -1,0 +1,9 @@
+
+---
+aws_region: us-east-1
+aws_s3_bucket: "vm-migration-staging-12345"
+aws_import_role: "vmimport"
+aws_vpc_cidr: 10.10.0.0/16
+aws_subnets:
+  - { name: app-a, az: us-east-1a, cidr: 10.10.1.0/24 }
+  - { name: db-a,  az: us-east-1a, cidr: 10.10.2.0/24 }

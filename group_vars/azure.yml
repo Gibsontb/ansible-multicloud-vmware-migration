@@ -1,0 +1,10 @@
+
+---
+azure_location: eastus
+azure_rg: rg-migration-landing
+azure_vnet_cidr: 10.20.0.0/16
+azure_subnets:
+  - { name: app, cidr: 10.20.1.0/24 }
+  - { name: db,  cidr: 10.20.2.0/24 }
+azure_storage_account: migstore12345
+azure_container: vhds

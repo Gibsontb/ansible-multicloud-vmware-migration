@@ -1,0 +1,10 @@
+
+---
+# SAMPLE (do NOT commit real secrets)
+vault_vcenter_user: "administrator@vsphere.local"
+vault_vcenter_pass: "REPLACE_ME"
+vault_azure_subscription_id: "00000000-0000-0000-0000-000000000000"
+vault_azure_client_id: "00000000-0000-0000-0000-000000000000"
+vault_azure_client_secret: "REPLACE_ME"
+vault_azure_tenant: "00000000-0000-0000-0000-000000000000"
+vault_gcp_sa_json_path: "/path/to/gcp-sa.json"

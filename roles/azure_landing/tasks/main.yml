@@ -1,0 +1,22 @@
+
+---
+- name: Ensure RG
+  azure.azcollection.azure_rm_resourcegroup:
+    name: "{{ azure_rg }}"
+    location: "{{ azure_location }}"
+
+- name: Create VNet
+  azure.azcollection.azure_rm_virtualnetwork:
+    resource_group: "{{ azure_rg }}"
+    name: vnet-migration
+    address_prefixes: ["{{ azure_vnet_cidr }}"]
+
+- name: Create subnets
+  loop: "{{ azure_subnets }}"
+  loop_control:
+    loop_var: sn
+  azure.azcollection.azure_rm_subnet:
+    resource_group: "{{ azure_rg }}"
+    virtual_network: vnet-migration
+    name: "{{ sn.name }}"
+    address_prefix: "{{ sn.cidr }}"

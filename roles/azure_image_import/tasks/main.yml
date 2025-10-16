@@ -1,0 +1,26 @@
+
+---
+- name: Create managed image from VHD in Blob
+  azure.azcollection.azure_rm_image:
+    resource_group: "{{ azure_rg }}"
+    name: img-app01
+    os_type: Linux
+    source:
+      uri: "https://{{ azure_storage_account }}.blob.core.windows.net/{{ azure_container }}/images/app01.vhd"
+
+- name: Launch VM from managed image
+  azure.azcollection.azure_rm_virtualmachine:
+    resource_group: "{{ azure_rg }}"
+    name: app01
+    vm_size: Standard_DS2_v2
+    admin_username: azureuser
+    ssh_password_enabled: false
+    ssh_public_keys:
+      - path: /home/azureuser/.ssh/authorized_keys
+        key_data: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    network_interfaces:
+      - name: nic-app01
+        virtual_network: vnet-migration
+        subnet: app
+    image:
+      name: img-app01

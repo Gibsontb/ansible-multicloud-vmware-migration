@@ -1,0 +1,8 @@
+
+---
+- name: Create AWS landing zone (VPC, subnets, routes, SGs)
+  hosts: aws
+  gather_facts: false
+  roles:
+    - role: aws_landing
+  tags: [aws,landing]

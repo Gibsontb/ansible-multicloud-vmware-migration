@@ -1,0 +1,18 @@
+
+---
+- name: Gather VM facts from vCenter
+  community.vmware.vmware_vm_info:
+    hostname: "{{ vcenter_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    validate_certs: "{{ validate_certs | default(false) }}"
+  register: vm_info
+
+- name: Filter VMs by list (optional)
+  set_fact:
+    vm_list: "{{ (vm_info.virtual_machines | map(attribute='guest_name') | list) if vm_filter|length == 0
+                else (vm_info.virtual_machines | selectattr('guest_name','in', vm_filter) | list) }}"
+
+- name: Show discovered VMs
+  debug:
+    var: vm_list | map(attribute='guest_name') | list

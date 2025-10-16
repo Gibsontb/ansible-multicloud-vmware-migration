@@ -1,0 +1,10 @@
+
+---
+- name: Discover VMware inventory
+  hosts: vcenter
+  gather_facts: false
+  vars:
+    vm_filter: "{{ vmware_vms | default([]) | map(attribute='name') | list }}"
+  roles:
+    - role: vmware_discover
+  tags: [discover]

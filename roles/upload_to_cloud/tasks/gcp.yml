@@ -1,0 +1,24 @@
+
+---
+- name: Ensure GCS bucket exists
+  google.cloud.gcp_storage_bucket:
+    name: "{{ gcs_bucket }}"
+    project: "{{ gcp_project }}"
+    location: "{{ gcp_region }}"
+    state: present
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp_service_account_file }}"
+
+- name: Upload images to GCS
+  vars:
+    src_dir: "{{ vmware_export_dir }}"
+  loop: "{{ lookup('ansible.builtin.fileglob', src_dir + '/*/*.vmdk', wantlist=True) }}"
+  loop_control:
+    loop_var: vmdk_file
+  google.cloud.gcp_storage_object:
+    name: "images/{{ vmdk_file | basename }}"
+    bucket: "{{ gcs_bucket }}"
+    src: "{{ vmdk_file }}"
+    project: "{{ gcp_project }}"
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp_service_account_file }}"

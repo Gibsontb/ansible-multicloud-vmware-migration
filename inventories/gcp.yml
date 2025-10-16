@@ -1,0 +1,9 @@
+
+---
+all:
+  hosts:
+    gcp:
+      ansible_connection: local
+      gcp_project: my-gcp-project
+      gcp_region: us-east1
+      gcp_service_account_file: "{{ vault_gcp_sa_json_path }}"

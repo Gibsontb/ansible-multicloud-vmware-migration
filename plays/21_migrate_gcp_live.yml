@@ -1,0 +1,8 @@
+
+---
+- name: Live migration to GCP (Migrate to VMs prerequisites & agent)
+  hosts: gcp
+  gather_facts: false
+  roles:
+    - role: gcp_migrate_bootstrap
+  tags: [gcp,live]

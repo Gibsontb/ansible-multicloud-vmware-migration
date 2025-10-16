@@ -1,0 +1,8 @@
+
+---
+all:
+  hosts:
+    aws:
+      ansible_connection: local
+      aws_region: us-east-1
+      aws_profile: default

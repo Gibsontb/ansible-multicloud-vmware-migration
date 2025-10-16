@@ -1,0 +1,8 @@
+
+---
+- name: Create Azure landing zone (VNet, subnets, NSGs)
+  hosts: azure
+  gather_facts: false
+  roles:
+    - role: azure_landing
+  tags: [azure,landing]

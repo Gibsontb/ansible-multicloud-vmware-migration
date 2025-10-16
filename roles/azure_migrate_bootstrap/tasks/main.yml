@@ -1,0 +1,6 @@
+
+---
+- name: Note about Azure Migrate
+  debug:
+    msg: >
+      This role sets up Azure Migrate project/appliance prerequisites and agent installation scripts.

@@ -1,0 +1,18 @@
+
+---
+- name: Create S3 bucket for staging (idempotent)
+  amazon.aws.s3_bucket:
+    name: "{{ aws_s3_bucket }}"
+    state: present
+
+- name: Upload exported OVA/VMDK to S3
+  vars:
+    src_dir: "{{ vmware_export_dir }}"
+  loop: "{{ lookup('ansible.builtin.fileglob', src_dir + '/*/*.ova', wantlist=True) }}"
+  loop_control:
+    loop_var: ova_file
+  amazon.aws.aws_s3:
+    bucket: "{{ aws_s3_bucket }}"
+    object: "images/{{ ova_file | basename }}"
+    src: "{{ ova_file }}"
+    mode: put

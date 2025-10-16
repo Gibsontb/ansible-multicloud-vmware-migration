@@ -1,0 +1,11 @@
+
+---
+network_map:
+  "VLAN10-APP":
+    aws_subnet: app-a
+    azure_subnet: app
+    gcp_subnet: app
+  "VLAN20-DB":
+    aws_subnet: db-a
+    azure_subnet: db
+    gcp_subnet: db

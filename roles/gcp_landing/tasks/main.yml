@@ -1,0 +1,24 @@
+
+---
+- name: Create VPC
+  google.cloud.gcp_compute_network:
+    name: "{{ gcp_network }}"
+    project: "{{ gcp_project }}"
+    auto_create_subnetworks: false
+    state: present
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp_service_account_file }}"
+
+- name: Create subnets
+  loop: "{{ gcp_subnets }}"
+  loop_control:
+    loop_var: sn
+  google.cloud.gcp_compute_subnetwork:
+    name: "{{ sn.name }}"
+    project: "{{ gcp_project }}"
+    region: "{{ sn.region }}"
+    network: "{{ gcp_network }}"
+    ip_cidr_range: "{{ sn.cidr }}"
+    state: present
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp_service_account_file }}"

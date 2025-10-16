@@ -1,0 +1,13 @@
+
+---
+- name: Register AMIs from S3 (informational)
+  ansible.builtin.debug:
+    msg: "Use AWS CLI or a workflow to import each OVA in s3://{{ aws_s3_bucket }}/images/*.ova into AMIs (requires 'vmimport' role)."
+
+- name: Example AWS CLI (adjust for your filenames; consider automation via Step Functions)
+  ansible.builtin.command: >-
+    aws ec2 import-image
+    --region {{ aws_region }}
+    --description "Imported from VMware"
+    --disk-containers '[{"Description":"vm","Format":"ova","UserBucket":{"S3Bucket":"{{ aws_s3_bucket }}","S3Key":"images/app01.ova"}}]'
+  changed_when: false

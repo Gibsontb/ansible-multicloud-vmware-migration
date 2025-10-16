@@ -1,0 +1,6 @@
+
+---
+- name: Note about Google Migrate to VMs
+  debug:
+    msg: >
+      This role prepares Migrate to VMs (formerly Velostrata) prerequisites.

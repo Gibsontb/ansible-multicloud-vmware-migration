@@ -1,0 +1,8 @@
+
+---
+- name: Cutover play (stop on-prem, boot cloud VMs, post-checks)
+  hosts: localhost
+  gather_facts: false
+  roles:
+    - role: cutover
+  tags: [cutover]

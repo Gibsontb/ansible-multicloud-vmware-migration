@@ -1,0 +1,9 @@
+
+---
+vmware_datacenter: "DC1"
+vmware_cluster: "Prod-Cluster"
+vmware_datastore: "SAN01"
+vmware_export_dir: "/tmp/exports"
+vmware_vms:
+  - name: app01
+  - name: db01

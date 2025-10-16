@@ -1,0 +1,10 @@
+
+---
+all:
+  hosts:
+    vcenter:
+      ansible_connection: local
+      vcenter_hostname: "vcenter.example.local"
+      vcenter_username: "{{ vault_vcenter_user }}"
+      vcenter_password: "{{ vault_vcenter_pass }}"
+      validate_certs: false

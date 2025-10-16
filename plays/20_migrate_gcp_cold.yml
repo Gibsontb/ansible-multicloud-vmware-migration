@@ -1,0 +1,15 @@
+
+---
+- name: Cold image migration to GCP (OVF/VMDK → GCS → Image → VM)
+  hosts: gcp
+  gather_facts: false
+  pre_tasks:
+    - set_fact:
+        selected_vms: "{{ hostvars['vcenter'].vm_list | default([]) }}"
+  roles:
+    - role: image_export_vmware
+    - role: upload_to_cloud
+      vars:
+        provider: gcp
+    - role: gcp_image_import
+  tags: [gcp,cold]

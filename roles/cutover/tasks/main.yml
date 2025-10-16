@@ -1,0 +1,10 @@
+
+---
+- name: Example cutover sequence (pseudo)
+  debug:
+    msg: |
+      1) Freeze on-prem (stop app, DB, final rsync/snapshot)
+      2) Power off on-prem VMs
+      3) Boot cloud instances
+      4) DNS switch and health checks
+      5) Verify rollback plan

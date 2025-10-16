@@ -1,0 +1,34 @@
+
+---
+- name: Ensure resource group exists
+  azure.azcollection.azure_rm_resourcegroup:
+    name: "{{ azure_rg }}"
+    location: "{{ azure_location }}"
+
+- name: Ensure storage account exists
+  azure.azcollection.azure_rm_storageaccount:
+    resource_group: "{{ azure_rg }}"
+    name: "{{ azure_storage_account }}"
+    location: "{{ azure_location }}"
+    account_type: Standard_LRS
+
+- name: Ensure blob container exists
+  azure.azcollection.azure_rm_storageblob:
+    resource_group: "{{ azure_rg }}"
+    storage_account_name: "{{ azure_storage_account }}"
+    container: "{{ azure_container }}"
+    state: present
+
+- name: Upload VHDs (using Azure CLI for large files; adjust if needed)
+  vars:
+    src_dir: "{{ vmware_export_dir }}"
+  loop: "{{ lookup('ansible.builtin.fileglob', src_dir + '/*/*.vhd', wantlist=True) }}"
+  loop_control:
+    loop_var: vhd_file
+  ansible.builtin.command: >-
+    az storage blob upload
+    --account-name {{ azure_storage_account }}
+    --container-name {{ azure_container }}
+    --name images/{{ vhd_file | basename }}
+    --file {{ vhd_file }}
+  changed_when: false

@@ -1,0 +1,29 @@
+
+---
+- name: Create image from VMDK in GCS
+  google.cloud.gcp_compute_image:
+    name: img-app01
+    project: "{{ gcp_project }}"
+    raw_disk:
+      source: "https://storage.googleapis.com/{{ gcs_bucket }}/images/app01.vmdk"
+    state: present
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp_service_account_file }}"
+
+- name: Launch instance from image
+  google.cloud.gcp_compute_instance:
+    name: app01
+    project: "{{ gcp_project }}"
+    zone: "{{ gcp_region }}-b"
+    machine_type: n2-standard-2
+    network_interfaces:
+      - network: "{{ gcp_network }}"
+        subnetwork: app
+    disks:
+      - auto_delete: true
+        boot: true
+        initialize_params:
+          source_image: img-app01
+    state: present
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp_service_account_file }}"

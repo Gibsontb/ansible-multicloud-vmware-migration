@@ -1,0 +1,7 @@
+
+---
+- name: Note about AWS MGN
+  debug:
+    msg: >
+      This role prepares MGN (replication templates, agent install).
+      Add tasks for AWS Application Migration Service via boto3/CLI as needed.
