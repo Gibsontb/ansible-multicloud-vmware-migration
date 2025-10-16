@@ -1,0 +1,8 @@
+
+---
+- name: AWS backup/DR defaults
+  hosts: aws
+  gather_facts: false
+  roles:
+    - role: aws_backup
+  tags: [aws, backup]

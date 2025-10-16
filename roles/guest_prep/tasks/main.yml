@@ -1,0 +1,7 @@
+
+---
+- name: Guest prep placeholder
+  debug:
+    msg: |
+      Prepare OS for cloud (clean temp, stop services, optional sysprep for Windows, ensure cloud-init for Linux).
+      TODO: If you provide guest creds, you can use community.vmware.vmware_guest_run_command to run inside VMs.

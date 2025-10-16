@@ -1,0 +1,8 @@
+
+---
+- name: AZURE backup/DR defaults
+  hosts: azure
+  gather_facts: false
+  roles:
+    - role: azure_backup
+  tags: [azure, backup]

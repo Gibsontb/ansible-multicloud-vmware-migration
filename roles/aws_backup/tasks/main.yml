@@ -1,0 +1,6 @@
+
+---
+- name: AWS backup/scaffold
+  debug:
+    msg: |
+      Configure AWS Backup plans for EBS/EC2/AMI retention.

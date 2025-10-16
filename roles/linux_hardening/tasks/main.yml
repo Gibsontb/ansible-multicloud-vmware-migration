@@ -1,0 +1,5 @@
+
+---
+- name: Linux hardening scaffold
+  debug:
+    msg: "Apply SSH, packages, CIS-ish controls as needed."

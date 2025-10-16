@@ -1,0 +1,6 @@
+
+---
+- name: Certificates deployment scaffold
+  debug:
+    msg: |
+      Deploy/renew certs via ACM/Key Vault/Cert Manager/ACME.

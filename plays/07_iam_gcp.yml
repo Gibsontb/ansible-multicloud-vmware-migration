@@ -1,0 +1,8 @@
+
+---
+- name: GCP identity & policy baseline
+  hosts: gcp
+  gather_facts: false
+  roles:
+    - role: gcp_iam_baseline
+  tags: [gcp, iam]

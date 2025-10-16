@@ -5,3 +5,15 @@ gcp_subnets:
   - { name: app, region: us-east1, cidr: 10.30.1.0/24 }
   - { name: db,  region: us-east1, cidr: 10.30.2.0/24 }
 gcs_bucket: vm-migration-staging
+
+# Connectivity placeholders
+onprem_peer_ip: "203.0.113.10"
+onprem_asn: 65010
+vpn_psk: "REPLACE_ME"
+
+# Guardrails/Logging
+log_bucket: "gcp-audit-logs-bucket"
+scc_enable: true
+
+# Load balancer sample inputs
+lb_name: "mig-lb"

@@ -1,0 +1,6 @@
+
+---
+- name: GCP backup/scaffold
+  debug:
+    msg: |
+      Configure snapshot schedules and image retention.

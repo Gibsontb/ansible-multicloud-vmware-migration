@@ -1,0 +1,6 @@
+
+---
+- name: Azure backup/scaffold
+  debug:
+    msg: |
+      Configure Recovery Services vault and backup policies.

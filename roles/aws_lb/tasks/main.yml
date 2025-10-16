@@ -1,0 +1,6 @@
+
+---
+- name: AWS load balancer scaffold
+  debug:
+    msg: |
+      Create ALB/NLB, target groups, listeners. Input lb_name={{ lb_name }}.

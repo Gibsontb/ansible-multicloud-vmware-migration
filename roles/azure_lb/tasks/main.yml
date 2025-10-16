@@ -1,0 +1,6 @@
+
+---
+- name: Azure load balancer scaffold
+  debug:
+    msg: |
+      Create Azure Load Balancer or Application Gateway. Input lb_name={{ lb_name }}.

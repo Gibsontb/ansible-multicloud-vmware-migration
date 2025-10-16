@@ -1,0 +1,5 @@
+
+---
+- name: GCP cost control scaffold
+  debug:
+    msg: "Create budget alerts and labels governance."

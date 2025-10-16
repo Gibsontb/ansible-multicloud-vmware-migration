@@ -1,0 +1,6 @@
+
+---
+- name: GCP load balancer scaffold
+  debug:
+    msg: |
+      Create Global HTTP(S) LB / TCP proxy. Input lb_name={{ lb_name }}.

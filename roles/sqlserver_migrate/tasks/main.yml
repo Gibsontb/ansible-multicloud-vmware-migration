@@ -1,0 +1,7 @@
+
+---
+- name: SQL Server migration scaffold
+  debug:
+    msg: |
+      Choose: Log Shipping / Always On AG / AWS DMS / Azure DMS / GCP Database Migration Service.
+      TODO: Add your chosen tool steps and cutover logic.

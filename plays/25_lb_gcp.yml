@@ -1,0 +1,8 @@
+
+---
+- name: GCP load balancer scaffolding
+  hosts: gcp
+  gather_facts: false
+  roles:
+    - role: gcp_lb
+  tags: [gcp, lb]

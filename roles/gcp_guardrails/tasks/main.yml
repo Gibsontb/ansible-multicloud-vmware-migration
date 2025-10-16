@@ -1,0 +1,6 @@
+
+---
+- name: Enable GCP logging/monitoring + SCC (scaffold)
+  debug:
+    msg: |
+      Would route audit logs to {{ log_bucket }}, enable Security Command Center (scc_enable={{ scc_enable }}).

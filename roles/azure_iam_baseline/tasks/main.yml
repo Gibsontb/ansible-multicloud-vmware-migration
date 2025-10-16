@@ -1,0 +1,7 @@
+
+---
+- name: Baseline Azure RBAC/Policy (scaffold)
+  debug:
+    msg: |
+      Assign RBAC roles, set Azure Policy (deny without tags, etc.).
+      TODO: Add azure_rm_roleassignment / azure.azcollection.azure_rm_policydefinition.

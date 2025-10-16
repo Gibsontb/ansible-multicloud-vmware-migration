@@ -1,0 +1,8 @@
+
+---
+- name: GCP backup/DR defaults
+  hosts: gcp
+  gather_facts: false
+  roles:
+    - role: gcp_backup
+  tags: [gcp, backup]

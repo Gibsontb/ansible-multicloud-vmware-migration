@@ -1,0 +1,5 @@
+
+---
+- name: Azure cost management scaffold
+  debug:
+    msg: "Create budgets/alerts; enforce required tags via Policy."

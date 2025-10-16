@@ -1,0 +1,7 @@
+
+---
+- name: Baseline GCP IAM/Org Policy (scaffold)
+  debug:
+    msg: |
+      Bind roles, set org policies (e.g., restrict external IPs).
+      TODO: Add google.cloud.gcp_iam_* bindings.

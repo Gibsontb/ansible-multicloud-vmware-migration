@@ -1,0 +1,7 @@
+
+---
+- name: Enable/verify CloudTrail/Config/GuardDuty (scaffold)
+  debug:
+    msg: |
+      Would enable CloudTrail (bucket={{ cloudtrail_bucket }}), AWS Config, GuardDuty (guardduty_enable={{ guardduty_enable }}).
+      TODO: Implement via modules/CLI as per your org standards.

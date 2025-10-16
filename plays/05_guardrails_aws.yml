@@ -1,0 +1,8 @@
+
+---
+- name: AWS guardrails (logging/monitoring/security)
+  hosts: aws
+  gather_facts: false
+  roles:
+    - role: aws_guardrails
+  tags: [aws, guardrails]

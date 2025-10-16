@@ -1,0 +1,8 @@
+
+---
+- name: AZURE connectivity scaffolding (VPN/DC/ER/Interconnect)
+  hosts: azure
+  gather_facts: false
+  roles:
+    - role: azure_network_connect
+  tags: [azure, connect]

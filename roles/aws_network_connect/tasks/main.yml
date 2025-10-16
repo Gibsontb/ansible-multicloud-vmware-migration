@@ -1,0 +1,8 @@
+
+---
+- name: AWS connectivity scaffold (VPN / Direct Connect / TGW)
+  debug:
+    msg: |
+      Configure site-to-site VPN or DirectConnect.
+      Inputs: onprem_peer_ip={{ onprem_peer_ip }}, onprem_asn={{ onprem_asn }}, cloud_asn={{ cloud_asn }}, use_transit_gateway={{ use_transit_gateway }}
+      NOTE: Fill in tasks to create VGW/TGW, Customer Gateway, and VPN Connections.

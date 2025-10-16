@@ -1,0 +1,8 @@
+
+---
+- name: Optional guest OS prep before export
+  hosts: vcenter
+  gather_facts: false
+  roles:
+    - role: guest_prep
+  tags: [guest_prep]

@@ -7,3 +7,20 @@ aws_vpc_cidr: 10.10.0.0/16
 aws_subnets:
   - { name: app-a, az: us-east-1a, cidr: 10.10.1.0/24 }
   - { name: db-a,  az: us-east-1a, cidr: 10.10.2.0/24 }
+
+# Connectivity placeholders
+onprem_peer_ip: "203.0.113.10"
+onprem_asn: 65010
+cloud_asn: 64512
+vpn_psk: "REPLACE_ME"
+use_transit_gateway: false
+
+# Guardrails/Logging
+cloudtrail_bucket: "acct-cloudtrail-logs-12345"
+guardduty_enable: true
+config_enable: true
+
+# Load balancer sample inputs
+lb_vpc_id: ""
+lb_subnet_ids: []
+lb_name: "mig-alb"

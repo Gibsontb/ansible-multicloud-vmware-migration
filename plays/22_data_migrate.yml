@@ -1,0 +1,10 @@
+
+---
+- name: Database migration helpers
+  hosts: localhost
+  gather_facts: false
+  roles:
+    - role: sqlserver_migrate
+    - role: postgres_migrate
+    - role: mysql_migrate
+  tags: [data, migrate]

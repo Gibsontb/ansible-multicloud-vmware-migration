@@ -1,0 +1,8 @@
+
+---
+- name: AZURE guardrails (logging/monitoring/security)
+  hosts: azure
+  gather_facts: false
+  roles:
+    - role: azure_guardrails
+  tags: [azure, guardrails]

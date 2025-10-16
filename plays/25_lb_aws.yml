@@ -1,0 +1,8 @@
+
+---
+- name: AWS load balancer scaffolding
+  hosts: aws
+  gather_facts: false
+  roles:
+    - role: aws_lb
+  tags: [aws, lb]

@@ -1,0 +1,7 @@
+
+---
+- name: Baseline AWS IAM (scaffold)
+  debug:
+    msg: |
+      Create least-privilege roles and SCPs; enforce tagging.
+      TODO: Add amazon.aws.iam_role/iam_policy tasks.

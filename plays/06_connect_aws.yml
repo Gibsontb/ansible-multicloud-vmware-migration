@@ -1,0 +1,8 @@
+
+---
+- name: AWS connectivity scaffolding (VPN/DC/ER/Interconnect)
+  hosts: aws
+  gather_facts: false
+  roles:
+    - role: aws_network_connect
+  tags: [aws, connect]

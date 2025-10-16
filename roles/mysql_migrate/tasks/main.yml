@@ -1,0 +1,6 @@
+
+---
+- name: MySQL migration scaffold
+  debug:
+    msg: |
+      Options: replication (binlog), Percona XtraBackup restore, cloud DMS services.

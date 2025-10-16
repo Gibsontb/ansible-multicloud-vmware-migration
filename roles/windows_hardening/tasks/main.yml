@@ -1,0 +1,5 @@
+
+---
+- name: Windows hardening scaffold
+  debug:
+    msg: "Enable baseline policies, RDP/WinRM hardening, Defender."

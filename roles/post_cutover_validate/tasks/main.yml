@@ -1,0 +1,6 @@
+
+---
+- name: Post-cutover validation
+  debug:
+    msg: |
+      Run smoke tests, synthetic HTTP checks, DB connects, and DNS resolution tests.

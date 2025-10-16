@@ -1,0 +1,8 @@
+
+---
+- name: GCP guardrails (logging/monitoring/security)
+  hosts: gcp
+  gather_facts: false
+  roles:
+    - role: gcp_guardrails
+  tags: [gcp, guardrails]

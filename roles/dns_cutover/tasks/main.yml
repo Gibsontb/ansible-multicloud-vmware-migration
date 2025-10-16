@@ -1,0 +1,6 @@
+
+---
+- name: DNS cutover scaffold
+  debug:
+    msg: |
+      Update records, TTL lowering, split-horizon handling.

@@ -1,0 +1,8 @@
+
+---
+- name: GCP connectivity scaffolding (VPN/DC/ER/Interconnect)
+  hosts: gcp
+  gather_facts: false
+  roles:
+    - role: gcp_network_connect
+  tags: [gcp, connect]

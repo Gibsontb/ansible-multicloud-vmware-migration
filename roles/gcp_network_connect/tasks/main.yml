@@ -1,0 +1,8 @@
+
+---
+- name: GCP connectivity scaffold (Cloud VPN / Interconnect)
+  debug:
+    msg: |
+      Set up HA VPN Gateways, tunnels, and BGP sessions.
+      Inputs: onprem_peer_ip={{ onprem_peer_ip }}, onprem_asn={{ onprem_asn }}
+      NOTE: Add gcp_compute_ha_vpn_gateway / gcp_compute_vpn_tunnel tasks as needed.

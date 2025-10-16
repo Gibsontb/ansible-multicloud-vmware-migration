@@ -1,0 +1,8 @@
+
+---
+- name: AZURE load balancer scaffolding
+  hosts: azure
+  gather_facts: false
+  roles:
+    - role: azure_lb
+  tags: [azure, lb]

@@ -1,13 +1,54 @@
 
 ---
+# Optional: pre-export OS prep
+- import_playbook: plays/01_guest_prep.yml
+
+# Provider guardrails (security logging/monitoring)
+- import_playbook: plays/05_guardrails_aws.yml
+- import_playbook: plays/05_guardrails_azure.yml
+- import_playbook: plays/05_guardrails_gcp.yml
+
+# Connectivity (VPN/ER/DC/Interconnect) scaffolds
+- import_playbook: plays/06_connect_aws.yml
+- import_playbook: plays/06_connect_azure.yml
+- import_playbook: plays/06_connect_gcp.yml
+
+# Identity/Baseline policy
+- import_playbook: plays/07_iam_aws.yml
+- import_playbook: plays/07_iam_azure.yml
+- import_playbook: plays/07_iam_gcp.yml
+
+# Discovery & Landing
 - import_playbook: plays/00_discover_vmware.yml
 - import_playbook: plays/10_landing_aws.yml
 - import_playbook: plays/10_landing_azure.yml
 - import_playbook: plays/10_landing_gcp.yml
+
+# Migration (cold & live)
 - import_playbook: plays/20_migrate_aws_cold.yml
 - import_playbook: plays/20_migrate_azure_cold.yml
 - import_playbook: plays/20_migrate_gcp_cold.yml
 - import_playbook: plays/21_migrate_aws_live.yml
 - import_playbook: plays/21_migrate_azure_live.yml
 - import_playbook: plays/21_migrate_gcp_live.yml
-- import_playbook: plays/30_cutover.yml
+
+# Load balancers / front doors
+- import_playbook: plays/25_lb_aws.yml
+- import_playbook: plays/25_lb_azure.yml
+- import_playbook: plays/25_lb_gcp.yml
+
+# Backups / DR defaults
+- import_playbook: plays/26_backup_aws.yml
+- import_playbook: plays/26_backup_azure.yml
+- import_playbook: plays/26_backup_gcp.yml
+
+# Data-layer migration helpers
+- import_playbook: plays/22_data_migrate.yml
+
+# DNS + Certificates
+- import_playbook: plays/31_dns_certs.yml
+
+# Post-cutover validation & optional hardening
+- import_playbook: plays/35_post_validate.yml
+
+# (Optional) Guest OS hardening plays can be run with -l against target hosts after cutover.

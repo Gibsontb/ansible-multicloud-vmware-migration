@@ -1,0 +1,9 @@
+
+---
+- name: DNS & certificate cutover helpers
+  hosts: localhost
+  gather_facts: false
+  roles:
+    - role: dns_cutover
+    - role: certs_deploy
+  tags: [dns, certs]

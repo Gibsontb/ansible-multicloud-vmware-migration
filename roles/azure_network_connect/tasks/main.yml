@@ -1,0 +1,8 @@
+
+---
+- name: Azure connectivity scaffold (VPN / ExpressRoute)
+  debug:
+    msg: |
+      Create Virtual Network Gateway, Local Network Gateway, and Connections.
+      Inputs: onprem_peer_ip={{ onprem_peer_ip }}, onprem_asn={{ onprem_asn }}
+      NOTE: Add azure_rm_virtualnetworkgateway / azure_rm_localnetworkgateway tasks as needed.

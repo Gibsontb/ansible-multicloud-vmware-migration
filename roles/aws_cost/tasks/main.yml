@@ -1,0 +1,5 @@
+
+---
+- name: AWS budgets and tag enforcement scaffold
+  debug:
+    msg: "Create cost budgets/alerts and tag policies."

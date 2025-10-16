@@ -1,0 +1,6 @@
+
+---
+- name: PostgreSQL migration scaffold
+  debug:
+    msg: |
+      Options: pglogical, Bucardo, native WAL shipping, cloud DMS services.

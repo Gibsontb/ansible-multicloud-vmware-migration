@@ -1,0 +1,8 @@
+
+---
+- name: Post-cutover validation suite
+  hosts: localhost
+  gather_facts: false
+  roles:
+    - role: post_cutover_validate
+  tags: [validate]
